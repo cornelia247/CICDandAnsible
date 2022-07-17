@@ -37,10 +37,13 @@ jobs:
         - add_ssh_keys:
             fingerprints: ["9a:bd:79:b6:6f:be:03:66:74:7a:48:ca:3c:f1:e3:e5"]
         - run:
+            name: install openssh
+            command:  apk add --update openssh
+        - run:
             name: install Ansible
             command: apk add --update ansible
         - run: 
-            name: Run Playbook and configure servers
+            name: Run Playbook and configure server
             command: ansible-playbook -i inventory main.yml
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
