@@ -45,6 +45,21 @@ jobs:
         - run: 
             name: Run Playbook and configure server
             command: ansible-playbook -i inventory main.yml
+  smoke_test:
+    docker:
+      - image: alpine:latest
+    steps:
+      - run: apk add --update curl
+      - run: 
+          name:
+          command: |
+            URL="https://blog.udacity.com/"
+            if curl -s --head ${URL}
+            then
+              return 0
+            else
+              return 1
+            fi
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
@@ -52,3 +67,4 @@ workflows:
     jobs:
       # - create_infrastructure
       - configure_infrastructure
+      - smoke_test
