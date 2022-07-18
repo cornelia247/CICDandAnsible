@@ -43,7 +43,7 @@ jobs:
   #     steps:
   #       - checkout
   #       - add_ssh_keys:
-  #           fingerprints: ["9a:bd:79:b6:6f:be:03:66:74:7a:48:ca:3c:f1:e3:e5"]
+  #           fingerprints: ["9f:52:9e:52:00:4a:57:d7:c9:7d:db:ea:ef:09:98:27"]
   #       - run:
   #           name: install openssh
   #           command:  apk add --update openssh
